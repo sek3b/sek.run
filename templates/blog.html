@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block title %}sek3b | Blog{% endblock %}
+
+{% block content %}
+<div class="output">
+    <div class="command-line">
+        <span class="prompt">$</span>
+        <span class="command">ls -la ~/blog/</span>
+    </div>
+
+    <div class="result">
+        {% if posts %}
+        <div class="file-list blog-list">
+            <div class="file-entry header">
+                <span class="permissions">permissions</span>
+                <span class="date">date</span>
+                <span class="filename">filename</span>
+            </div>
+            {% for post in posts %}
+            <div class="file-entry">
+                <span class="permissions">-rw-r--r--</span>
+                <span class="date">{{ post.date }}</span>
+                <a href="{{ url_for('blog_post', slug=post.slug) }}" class="filename">{{ post.title }}</a>
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <p class="muted"># No posts yet. Check back soon!</p>
+        <p class="muted"># Posts are loaded from markdown files in /blog_posts/</p>
+        {% endif %}
+    </div>
+
+    {% if posts %}
+    <div class="command-line">
+        <span class="prompt">$</span>
+        <span class="command">wc -l ~/blog/*</span>
+    </div>
+    <div class="result">
+        <p class="muted"># {{ posts|length }} post(s) found</p>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

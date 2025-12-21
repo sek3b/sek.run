@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block title %}{{ profile.name }} | Links{% endblock %}
+
+{% block content %}
+<div class="output">
+    <div class="command-line">
+        <span class="prompt">$</span>
+        <span class="command">cat ~/.links</span>
+    </div>
+
+    <div class="result links-page">
+        <div class="links-header">
+            <div class="ascii-avatar">
+<pre>
+  ___
+ /o o\
+|  ^  |
+ \___/
+</pre>
+            </div>
+            <h1>@{{ profile.name }}</h1>
+            <p class="links-bio">{{ profile.title }}</p>
+        </div>
+
+        <div class="links-list">
+            {% for link in links %}
+            <a href="{{ link.url }}" target="_blank" class="link-item">
+                <span class="link-icon">[{{ link.icon[:3] }}]</span>
+                <span class="link-name">{{ link.name }}</span>
+                <span class="link-arrow">--&gt;</span>
+            </a>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="command-line">
+        <span class="prompt">$</span>
+        <span class="command">echo "Thanks for stopping by!"</span>
+    </div>
+    <div class="result">
+        <p class="highlight">Thanks for stopping by!</p>
+    </div>
+</div>
+{% endblock %}

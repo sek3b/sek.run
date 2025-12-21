@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}sek3b{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="scanlines"></div>
+    <div class="terminal">
+        <header class="terminal-header">
+            <div class="terminal-buttons">
+                <span class="btn-close"></span>
+                <span class="btn-minimize"></span>
+                <span class="btn-maximize"></span>
+            </div>
+            <div class="terminal-title">sek3b@sek.run:~</div>
+        </header>
+
+        <nav class="terminal-nav">
+            <span class="prompt">$</span>
+            <a href="{{ url_for('index') }}" class="nav-link {% if request.endpoint == 'index' %}active{% endif %}">./home</a>
+            <a href="{{ url_for('about') }}" class="nav-link {% if request.endpoint == 'about' %}active{% endif %}">./about</a>
+            <a href="{{ url_for('projects') }}" class="nav-link {% if request.endpoint == 'projects' %}active{% endif %}">./projects</a>
+            <a href="{{ url_for('blog') }}" class="nav-link {% if request.endpoint in ['blog', 'blog_post'] %}active{% endif %}">./blog</a>
+            <a href="{{ url_for('links') }}" class="nav-link {% if request.endpoint == 'links' %}active{% endif %}">./links</a>
+        </nav>
+
+        <main class="terminal-body">
+            {% block content %}{% endblock %}
+        </main>
+
+        <footer class="terminal-footer">
+            <span class="prompt">$</span>
+            <span class="typing">{{ now.strftime('%Y-%m-%d %H:%M') }} | sek.run</span>
+            <span class="cursor">_</span>
+        </footer>
+    </div>
+</body>
+</html>

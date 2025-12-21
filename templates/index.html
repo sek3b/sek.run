@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block title %}{{ profile.name }} | Home{% endblock %}
+
+{% block content %}
+<div class="output">
+    <div class="command-line">
+        <span class="prompt">$</span>
+        <span class="command">whoami</span>
+    </div>
+    <div class="result ascii-art">
+<pre>
+ ___  ___| | _|___ | |__
+/ __|/ _ \ |/ /_  \| '_ \
+\__ \  __/   < __) | |_) |
+|___/\___|_|\_\___/|_.__/
+</pre>
+    </div>
+
+    <div class="command-line">
+        <span class="prompt">$</span>
+        <span class="command">cat /etc/motd</span>
+    </div>
+    <div class="result">
+        <p class="highlight">{{ profile.bio }}</p>
+    </div>
+
+    <div class="command-line">
+        <span class="prompt">$</span>
+        <span class="command">cat ~/.profile</span>
+    </div>
+    <div class="result info-block">
+        <p><span class="key">NAME</span>=<span class="value">"{{ profile.name }}"</span></p>
+        <p><span class="key">ROLE</span>=<span class="value">"{{ profile.title }}"</span></p>
+        <p><span class="key">LOCATION</span>=<span class="value">"{{ profile.location }}"</span></p>
+        <p><span class="key">CONTACT</span>=<span class="value">"{{ profile.email }}"</span></p>
+    </div>
+
+    {% if posts %}
+    <div class="command-line">
+        <span class="prompt">$</span>
+        <span class="command">ls -la ~/blog | head -3</span>
+    </div>
+    <div class="result">
+        <div class="file-list">
+            {% for post in posts %}
+            <div class="file-entry">
+                <span class="permissions">-rw-r--r--</span>
+                <span class="date">{{ post.date }}</span>
+                <a href="{{ url_for('blog_post', slug=post.slug) }}" class="filename">{{ post.title }}</a>
+            </div>
+            {% endfor %}
+        </div>
+        <p class="muted"># <a href="{{ url_for('blog') }}">View all posts</a></p>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}
