@@ -88,7 +88,7 @@ sudo chown sek3b:sek3b /var/www/sekrun
 
 ```bash
 cd /var/www/sekrun
-git clone git@github.com:sek3b/sek.run.git .
+git clone https://github.com/sek3b/sek.run.git .
 ```
 
 ### 5. Create Virtual Environment & Install Dependencies
