@@ -84,14 +84,12 @@ sudo mkdir -p /var/www/sekrun
 sudo chown sek3b:sek3b /var/www/sekrun
 ```
 
-### 4. Transfer Files to Server
+### 4. Clone the Repository
 
-From your local machine:
 ```bash
-scp -r /Users/sek3b/Desktop/git-repos-personal/sek.run/* sek3b@162.243.107.222:/var/www/sekrun/
+cd /var/www/sekrun
+git clone git@github.com:sek3b/sek.run.git .
 ```
-
-Or clone from git if you have a repo set up.
 
 ### 5. Create Virtual Environment & Install Dependencies
 
@@ -205,7 +203,7 @@ sudo systemctl restart nginx
 
 # Update application
 cd /var/www/sekrun
-git pull  # or scp new files
+git pull
 sudo systemctl restart sekrun
 ```
 
