@@ -45,6 +45,25 @@ LINKS = [
     {'name': 'Email', 'url': 'mailto:hello@sek.run', 'icon': 'email'},
 ]
 
+GAMES = [
+    {
+        'name': 'Pokémon Legends: Z-A',
+        'platform': 'Nintendo Switch',
+        'rating': '6/10',
+        'completion': 100,
+        'review': 'No voice acting, very easy difficulty, and can get very repetitive.',
+        'status': 'completed'
+    },
+    {
+        'name': 'Pokémon Legends: Z-A – Mega Dimension DLC',
+        'platform': 'Nintendo Switch',
+        'rating': '?/10',
+        'completion': 50,
+        'review': 'Still working on it.',
+        'status': 'playing'
+    },
+]
+
 
 def get_blog_posts():
     """Load blog posts from markdown files."""
@@ -104,6 +123,11 @@ def about():
 @app.route('/projects')
 def projects():
     return render_template('projects.html', projects=PROJECTS)
+
+
+@app.route('/games')
+def games():
+    return render_template('games.html', games=GAMES)
 
 
 @app.route('/blog')

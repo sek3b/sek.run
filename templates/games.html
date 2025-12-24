@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block title %}sek3b | Games{% endblock %}
+
+{% block content %}
+<div class="output">
+    <div class="command-line">
+        <span class="prompt">$</span>
+        <span class="command">ls ~/games/reviews/</span>
+    </div>
+
+    <div class="result">
+        <div class="projects-list">
+            {% for game in games %}
+            <div class="project-card">
+                <div class="project-header">
+                    <span class="folder-icon">[game]</span>
+                    <span class="project-name">{{ game.name }}</span>
+                    <span class="project-status status-{{ game.status }}">{{ game.status }}</span>
+                </div>
+                <div class="project-body">
+                    <p class="project-desc"># {{ game.review }}</p>
+                    <div class="game-info">
+                        <span class="tech-tag">{{ game.platform }}</span>
+                        <span class="game-rating">Rating: {{ game.rating }}</span>
+                    </div>
+                    <div class="progress-container">
+                        <span class="progress-label">Completion: {{ game.completion }}%</span>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: {{ game.completion }}%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="command-line">
+        <span class="prompt">$</span>
+        <span class="command">echo "More reviews coming soon..."</span>
+    </div>
+    <div class="result">
+        <p class="muted">More reviews coming soon...</p>
+    </div>
+</div>
+{% endblock %}
