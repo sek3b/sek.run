@@ -19,6 +19,8 @@ env/
 .claude/
 *.swp
 *.swo
+*.code-workspace
+CLAUDE.md
 
 # OS
 .DS_Store
