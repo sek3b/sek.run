@@ -149,6 +149,15 @@ body {
     font-size: 0.85rem;
 }
 
+.footer-link {
+    color: var(--text-muted);
+    text-decoration: none;
+}
+
+.footer-link:hover {
+    color: var(--link-color);
+}
+
 .cursor {
     animation: blink 1s step-end infinite;
     color: var(--accent-color);
