@@ -10,11 +10,10 @@ BLOG_DIR = os.path.join(os.path.dirname(__file__), 'blog_posts')
 
 # Sample data - customize these!
 PROFILE = {
-    'name': 'sek3b',
-    'title': 'Developer & Security Enthusiast',
+    'name': 'Shayne King',
+    'title': 'Network DevOps Engineer',
     'bio': 'Welcome to my corner of the internet. I build things, break things, and write about both.',
-    'location': 'Somewhere on the internet',
-    'email': 'hello@sek.run',
+    'email': 'sek3b@sek.run',
 }
 
 PROJECTS = [
