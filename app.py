@@ -18,25 +18,25 @@ PROFILE = {
 
 PROJECTS = [
     {
-        'name': 'project-alpha',
-        'description': 'A command-line tool for automating repetitive tasks',
-        'tech': ['Python', 'Click', 'SQLite'],
-        'url': 'https://github.com/sek3b/project-alpha',
+        'name': 'nuke-slack',
+        'description': 'Delete all of your own messages from Slack workspaces with rate limiting and resume support',
+        'tech': ['Python', 'Slack API'],
+        'url': 'https://github.com/sek3b/nuke-slack',
         'status': 'active'
     },
     {
-        'name': 'cyber-scanner',
-        'description': 'Network reconnaissance and vulnerability assessment toolkit',
-        'tech': ['Python', 'Nmap', 'Scapy'],
-        'url': 'https://github.com/sek3b/cyber-scanner',
+        'name': 'sek.run',
+        'description': 'This personal website - a Flask app with a terminal aesthetic',
+        'tech': ['Python', 'Flask', 'Jinja2'],
+        'url': 'https://github.com/sek3b/sek.run',
         'status': 'active'
     },
     {
-        'name': 'dotfiles',
-        'description': 'My personal configuration files for a productive dev environment',
-        'tech': ['Bash', 'Vim', 'Tmux'],
-        'url': 'https://github.com/sek3b/dotfiles',
-        'status': 'maintained'
+        'name': 'mac-kickstart',
+        'description': 'macOS bootstrap script to automate setting up a new Mac with dev tools and apps',
+        'tech': ['Bash', 'Homebrew'],
+        'url': 'https://github.com/sek3b/mac-kickstart',
+        'status': 'active'
     },
 ]
 
@@ -83,7 +83,7 @@ def get_blog_posts():
                 'date': metadata.get('date', 'Unknown'),
                 'tags': [t.strip() for t in metadata.get('tags', '').split(',') if t.strip()],
                 'body': body,
-                'html': markdown.markdown(body, extensions=['fenced_code', 'codehilite'])
+                'html': markdown.markdown(body, extensions=['fenced_code', 'codehilite', 'tables'])
             })
 
     # Sort by date, newest first

@@ -81,25 +81,28 @@ The cynical take is that Slack doesn't want you to delete messages because:
 
 Your conversation history isn't a bug, it's a feature - just not for you.
 
-## Workarounds
+## My Solution: nuke-slack
 
-Until Slack fixes this (don't hold your breath), here are your options:
+I got tired of waiting for Slack to fix this, so I built a tool to handle it myself.
 
-```python
-# The sad reality of bulk deletion
-import time
+[nuke-slack](https://github.com/sek3b/nuke-slack) is a Python script that deletes all of your own messages from Slack workspaces. It handles:
 
-for message in messages_to_delete:
-    try:
-        slack.chat_delete(channel=channel, ts=message['ts'])
-        time.sleep(2)  # Pray this is enough to avoid rate limits
-    except SlackApiError as e:
-        if e.response['error'] == 'ratelimited':
-            time.sleep(60)  # Wait and try again
-            # Repeat forever until done
+- **All conversation types** - public channels, private channels, group DMs, and direct messages
+- **Only your messages** - it won't touch anyone else's messages
+- **Rate limiting** - automatically handles Slack's API limits so you don't get blocked
+- **Resume support** - tracks processed conversations so you can pick up where you left off if interrupted
+
+```bash
+git clone https://github.com/sek3b/nuke-slack.git
+cd nuke-slack
+pip install requests
+# Add your OAuth token to config.json
+python3 nuke-slack.py
 ```
 
-Or just accept that your Slack is a roach motel for conversations: messages check in, but they never check out.
+You'll need a Slack User OAuth Token with the appropriate permissions. Check the repo README for the full setup instructions.
+
+Is it annoying that we need third-party tools to manage our own data? Absolutely. But until Slack decides user control matters, this is what we've got.
 
 ---
 

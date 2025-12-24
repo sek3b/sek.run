@@ -7,10 +7,8 @@ tags: meta, first-post
 
 This is the first post on my new site. I'll be sharing thoughts on:
 
-- Security research and findings
 - Development tips and tricks
 - Tool recommendations
-- Random musings
 
 ## Why a blog?
 
