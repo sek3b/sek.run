@@ -42,7 +42,7 @@ PROJECTS = [
 
 LINKS = [
     {'name': 'GitHub', 'url': 'https://github.com/sek3b', 'icon': 'github'},
-    {'name': 'Email', 'url': 'mailto:hello@sek.run', 'icon': 'email'},
+    {'name': 'Email', 'url': 'mailto:sek3b@sek.run', 'icon': 'email'},
 ]
 
 GAMES = [
