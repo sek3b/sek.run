@@ -2,10 +2,6 @@
 
 Personal website and blog built with Flask.
 
-## Deployment to DigitalOcean
-
-**Droplet IP:** `162.243.107.222`
-
 ---
 
 ## Initial Server Setup (As Root)
@@ -13,7 +9,7 @@ Personal website and blog built with Flask.
 ### 1. Connect as Root (First Time Only)
 
 ```bash
-ssh root@162.243.107.222
+ssh root@<YOUR_SERVER_IP>
 ```
 
 ### 2. Update System
@@ -43,7 +39,7 @@ chmod 600 /home/sek3b/.ssh/authorized_keys
 
 Open a new terminal and verify you can connect:
 ```bash
-ssh sek3b@162.243.107.222
+ssh sek3b@<YOUR_SERVER_IP>
 ```
 
 ### 6. Disable Root SSH Access
@@ -68,7 +64,7 @@ exit
 ### 1. Connect as Deploy User
 
 ```bash
-ssh sek3b@162.243.107.222
+ssh sek3b@<YOUR_SERVER_IP>
 ```
 
 ### 2. Install Dependencies
@@ -108,7 +104,7 @@ source venv/bin/activate
 gunicorn --bind 0.0.0.0:5000 app:app
 ```
 
-Visit `http://162.243.107.222:5000` to verify it works, then Ctrl+C to stop.
+Visit `http://<YOUR_SERVER_IP>:5000` to verify it works, then Ctrl+C to stop.
 
 ### 7. Create Systemd Service
 
@@ -144,7 +140,7 @@ sudo systemctl status sekrun
 sudo tee /etc/nginx/sites-available/sekrun << 'EOF'
 server {
     listen 80;
-    server_name 162.243.107.222 sek.run www.sek.run;
+    server_name <YOUR_SERVER_IP> sek.run www.sek.run;
 
     location / {
         proxy_pass http://127.0.0.1:5000;
@@ -180,7 +176,7 @@ sudo ufw --force enable
 
 ### 10. SSL with Let's Encrypt (Once Domain is Pointed)
 
-After pointing `sek.run` to `162.243.107.222`:
+After pointing `sek.run` to `<YOUR_SERVER_IP>`:
 
 ```bash
 sudo apt install -y certbot python3-certbot-nginx

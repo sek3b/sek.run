@@ -1,5 +1,5 @@
 title: Slack's Message Management is a Nightmare
-date: 2024-12-20
+date: 2025-12-20
 tags: rant, slack, productivity, software
 ---
 

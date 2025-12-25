@@ -1,5 +1,5 @@
 title: My Mac Kickstart Script for a Fresh Dev Setup
-date: 2024-12-20
+date: 2025-12-20
 tags: mac, automation, shell, devtools
 ---
 

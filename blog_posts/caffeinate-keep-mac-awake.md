@@ -1,5 +1,5 @@
 title: Keep Your Mac Awake with caffeinate
-date: 2024-12-23
+date: 2025-12-23
 tags: mac, terminal, automation, tips
 ---
 

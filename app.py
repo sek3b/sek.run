@@ -42,6 +42,7 @@ PROJECTS = [
 
 LINKS = [
     {'name': 'GitHub', 'url': 'https://github.com/sek3b', 'icon': 'github'},
+    {'name': 'Twitter', 'url': 'https://twitter.com/sek3b', 'icon': 'twitter'},
     {'name': 'Email', 'url': 'mailto:sek3b@sek.run', 'icon': 'email'},
 ]
 
